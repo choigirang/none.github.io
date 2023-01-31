@@ -289,5 +289,17 @@ defaults:
       comments: true
       share: true
       related: true
+      sidebar:
+      nav: "sidebar-category"
       show_date: true
 date_format: "%Y-%m-%d"
+
+sidebar-category:
+  - title: "Front"
+    children:
+      - title: "Html&Css"
+        url: "/Html&Css"
+      - title: "JavaScript"
+        url:  "/JavaScript"
+      - title: "React"
+        url:  "/React"
