@@ -2,10 +2,8 @@
 title:  "[Gitblog]포스팅 해보기"
 excerpt: "Gitblog 개설 후 시험용 포스팅"
 
-categories:
-  - Html&Css
-tags:
-  - [Blog, jekyll, Github, Git]
+categories: coding
+tags: [python, blog, jekyll]
 
 toc: true
 toc_sticky: true
