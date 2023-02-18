@@ -6,8 +6,8 @@ div.highlighter-rouge,
 figure.highlight {
   position: relative;
   margin-bottom: 1em;
-  background: $base00;
-  color: $base05;
+  background: $base04;
+  color: $base00;
   font-family: $monospace;
   font-size: $type-size-6;
   line-height: 1.8;
@@ -35,8 +35,8 @@ figure.highlight {
     &.rouge-gutter {
       padding-right: 1em;
       width: 1em;
-      color: $base04;
-      border-right: 1px solid $base04;
+      color: $base00;
+      border-right: 1px solid $base00;
       text-align: right;
     }
 
@@ -57,7 +57,7 @@ figure.highlight {
 }
 
 .highlight .hll {
-  background-color: $base06;
+  background-color: $base00;
 }
 .highlight {
   .c {
@@ -70,7 +70,7 @@ figure.highlight {
   }
   .k {
     /* Keyword */
-    color: $base0e;
+    color: $base08;
   }
   .l {
     /* Literal */
@@ -137,11 +137,11 @@ figure.highlight {
   }
   .kc {
     /* Keyword.Constant */
-    color: $base0e;
+    color: $base08;
   }
   .kd {
     /* Keyword.Declaration */
-    color: $base0e;
+    color: $base08;
   }
   .kn {
     /* Keyword.Namespace */
@@ -149,11 +149,11 @@ figure.highlight {
   }
   .kp {
     /* Keyword.Pseudo */
-    color: $base0e;
+    color: $base08;
   }
   .kr {
     /* Keyword.Reserved */
-    color: $base0e;
+    color: $base08;
   }
   .kt {
     /* Keyword.Type */
