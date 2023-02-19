@@ -35,8 +35,8 @@ figure.highlight {
     &.rouge-gutter {
       padding-right: 1em;
       width: 1em;
-      color: $base00;
-      border-right: 1px solid $base00;
+      color: $base04;
+      border-right: 1px solid $base04;
       text-align: right;
     }
 
@@ -57,7 +57,7 @@ figure.highlight {
 }
 
 .highlight .hll {
-  background-color: $base00;
+  background-color: $base06;
 }
 .highlight {
   .c {
@@ -70,7 +70,7 @@ figure.highlight {
   }
   .k {
     /* Keyword */
-    color: $base08;
+    color: #ff0086;
   }
   .l {
     /* Literal */
@@ -82,11 +82,11 @@ figure.highlight {
   }
   .o {
     /* Operator */
-    color: $base0c;
+    color: white;
   }
   .p {
     /* Punctuation */
-    color: $base05;
+    color: #6D6D6D;
   }
   .cm {
     /* Comment.Multiline */
@@ -137,11 +137,11 @@ figure.highlight {
   }
   .kc {
     /* Keyword.Constant */
-    color: $base08;
+    color: $base0e;
   }
   .kd {
     /* Keyword.Declaration */
-    color: $base08;
+    color: $base0e;
   }
   .kn {
     /* Keyword.Namespace */
@@ -149,11 +149,11 @@ figure.highlight {
   }
   .kp {
     /* Keyword.Pseudo */
-    color: $base08;
+    color: $base0e;
   }
   .kr {
     /* Keyword.Reserved */
-    color: $base08;
+    color: $base0e;
   }
   .kt {
     /* Keyword.Type */
@@ -173,7 +173,7 @@ figure.highlight {
   }
   .na {
     /* Name.Attribute */
-    color: $base0d;
+    color: #82C5EC;
   }
   .nb {
     /* Name.Builtin */
@@ -181,7 +181,7 @@ figure.highlight {
   }
   .nc {
     /* Name.Class */
-    color: $base0a;
+    color: #41BB9C;
   }
   .no {
     /* Name.Constant */
@@ -221,7 +221,7 @@ figure.highlight {
   }
   .nt {
     /* Name.Tag */
-    color: $base0c;
+    color: #4689CD;
   }
   .nv {
     /* Name.Variable */
@@ -245,7 +245,7 @@ figure.highlight {
   }
   .mi {
     /* Literal.Number.Integer */
-    color: $base09;
+    color: #A7C698;
   }
   .mo {
     /* Literal.Number.Oct */
@@ -265,7 +265,7 @@ figure.highlight {
   }
   .s2 {
     /* Literal.String.Double */
-    color: $base0b;
+    color: #C27E65;
   }
   .se {
     /* Literal.String.Escape */
@@ -277,7 +277,7 @@ figure.highlight {
   }
   .si {
     /* Literal.String.Interpol */
-    color: $base09;
+    color: #82c5ec;
   }
   .sx {
     /* Literal.String.Other */
