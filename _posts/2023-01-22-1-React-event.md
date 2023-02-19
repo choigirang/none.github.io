@@ -95,7 +95,7 @@ export default Header
 import React from "react"
 import Nav from "./Nav.js"
 
-function App(){
+function App()  {
     const list = [
         {id: 1, title: "html", body: "html is"},
         {id: 2, title: "css", body: "css is"},
@@ -119,7 +119,7 @@ import React from "react"
 function Nav(props){
     const navList = [];
 
-    for(let i=0; i<props.topics.length; i++>){
+    for(let i=0; i<props.topics.length; i++){
         let t = props.topics[i];
         navList.push(
             <li key={t.id}>
