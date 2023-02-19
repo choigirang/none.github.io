@@ -3,7 +3,7 @@ title:  "React 5장 - Router"
 excerpt: "라우팅 학습"
 
 categories: React
-tags: [React, 리액트, 컴포넌트, JSX, useState, event, state, prop]
+tags: [React, 리액트, 컴포넌트, JSX, router, SSR, CSR]
 
 toc: true
 toc_sticky: true
