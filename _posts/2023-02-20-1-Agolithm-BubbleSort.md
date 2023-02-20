@@ -23,6 +23,13 @@ last_modified_at: 2023-02-20
   7. 1 ~ 3의 과정을 총 n번(배열의 크기) 반복한다.
 
 
+
+```js
+let bubbleSort = function(arr){
+    
+}
+```
+
 ## 입력
 - arr
   - `number` 타입을 요소로 갖는 배열
@@ -44,3 +51,30 @@ let output = bubbleSort([2,1,3]);
 console.log(output)
 // [1,2,3]
 ```
+
+## 풀이
+```js
+const swap = function (indx1, indx2, arr){
+    [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]];
+}
+
+let bubbleSort = function(arr){
+    let N = arr.length;
+
+    for(let i=0; i < N; i++){
+        let swaps = 0;
+
+        for(let j=0; j < N-1-i; j++){
+            if(arr[j] > arr[j+1]){
+                swaps++;
+                swap(j, j+1, arr);
+            }
+        }
+    }
+
+    if(swaps === 0){
+        break;
+    }
+
+    return arr;
+}
