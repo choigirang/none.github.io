@@ -118,7 +118,36 @@ return (
 ```
 
 
-#### 코드
+### stories 작성
+- 컴포넌트명과 `stories.js` 를 작성하면 컴포넌트의 `stories`로 인식한다.
+- Toggle 컴포넌트를 불러온다.
+- 기본값의 `title`은 `Example`의 폴더 안에 Toggle 컴포넌트를 의미한다.
+- 기본값의 `component`는 Toggle 컴포넌트를 지칭한다.
+- `stories`는 storybook
+- [stories 설명보기](https://choigirang.github.io/react/3-React-Storybook/){: target:"_blank"}
+
+
+```jsx
+import React from "react";
+import {Toggle} from "./components/Toggle.js"
+
+export default{
+    title: "Example/Toggle",
+    component: Modal
+};
+
+const Template = (args) => <Modal {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+    primary: true,
+    label: "Toggle"
+}
+```
+
+
+
+### 코드
 ```jsx
 import {useState} from "react";
 import styled from "styled-components";
