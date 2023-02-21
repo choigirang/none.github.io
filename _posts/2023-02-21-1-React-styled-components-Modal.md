@@ -170,7 +170,7 @@ return (
 ```
 
 
-#### stories 작성
+### stories 작성
 - 컴포넌트명과 `stories.js` 를 작성하면 컴포넌트의 `stories`로 인식한다.
 - Modal 컴포넌트를 불러온다.
 - 기본값의 `title`은 `Example`의 폴더 안에 Modal 컴포넌트를 의미한다.
@@ -197,7 +197,7 @@ Primary.args = {
 }
 ```
 
-#### 코드
+### 코드
 ```jsx
 import {useState} from "react";
 import styled from "styled-components"
