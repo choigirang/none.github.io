@@ -1,5 +1,5 @@
 ---
-title:  "Algorithm 109장 - BubbleSort"
+title:  "Algorithm 256장 - BubbleSort"
 excerpt: "버블정렬 알고리즘"
 
 categories: Algorithm
