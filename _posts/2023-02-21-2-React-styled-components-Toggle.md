@@ -152,7 +152,7 @@ Primary.args = {
 import {useState} from "react";
 import styled from "styled-components";
 
-const ToggleContainer = styled.div`
+export const ToggleContainer = styled.div`
     position: relative;
     margin-top: 8rem;
     left: 47%
@@ -188,19 +188,21 @@ const Desc = styled.div`
     margin-top: 1rem;
 `
 
-const [isOn,setIsOn] = useState(false)
+export const Toggle = () => {
+    const [isOn,setIsOn] = useState(false)
 
-const toggleHandle = () => {
-    setIsOn(!isOn)
+    const toggleHandle = () => {
+        setIsOn(!isOn)
+    }
+
+    return (
+        <>
+            <ToggleContainer onClick={toggleHandle}>
+                <div className={`toggle-container ${isOn ? "toggle--checked" : ""}`} />
+                <div className={`toggle-circle ${isOn ? "toggle--checked" : ""}`} />
+            </ToggleContainer>
+            <Desc>{isOn ? "Toggle Switch On":"Toggle Switch OFF"}</Desc>
+        </>
+    )
 }
-
-return (
-    <>
-        <ToggleContainer onClick={toggleHandle}>
-            <div className={`toggle-container ${isOn ? "toggle--checked" : ""}`} />
-            <div className={`toggle-circle ${isOn ? "toggle--checked" : ""}`} />
-        </ToggleContainer>
-        <Desc>{isOn ? "Toggle Switch On":"Toggle Switch OFF"}</Desc>
-    </>
-)
 ```
