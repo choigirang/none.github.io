@@ -245,44 +245,45 @@ export const TagContainer.div`
         border: 1px solid var(--coz-purple-600);
     }
 `
+export const Tag = () => {
+    const allTags = ["choi","kim"]
 
-const allTags = ["choi","kim"]
+    const [tags,setTags] = useState(allTags)
 
-const [tags,setTags] = useState(allTags)
-
-const removeTags = (indexToRemove) => {
-    setTags(tags.filter((tag)=> tag !== tags[indexToRemove]))
-}
-
-const addTags = (event) => {
-    if(
-        event.key === "Enter" &&
-        !tags.includes(event.target.value) &&
-        event.target.value !== ""
-    ){
-        setTags([...tags, event.target.value]);
-        event.target.value = "";
+    const removeTags = (indexToRemove) => {
+        setTags(tags.filter((tag)=> tag !== tags[indexToRemove]))
     }
-}
 
-return (
-    <>
-        <TagContaier>
-            <ul>
-                {tags.map((tag, index)=> {
-                    <li key={index} className="tags">
-                        <span className="tag-title">{tags}</span>
-                        <span className="tags-close-icon" onClick={()=>removeTags(index)}>
-                        </span>
-                })}
-            </ul>
-            <input className="tag-input" type="text"
-            onClick={(event)=>{
-                addTags(event)
-            }} placeholder="Press enter to add tags" />
-        </TagContaier>
-    </>
-)
+    const addTags = (event) => {
+        if(
+            event.key === "Enter" &&
+            !tags.includes(event.target.value) &&
+            event.target.value !== ""
+        ){
+            setTags([...tags, event.target.value]);
+            event.target.value = "";
+        }
+    }
+
+    return (
+        <>
+            <TagContaier>
+                <ul>
+                    {tags.map((tag, index)=> {
+                        <li key={index} className="tags">
+                            <span className="tag-title">{tags}</span>
+                            <span className="tags-close-icon" onClick={()=>removeTags(index)}>
+                            </span>
+                    })}
+                </ul>
+                <input className="tag-input" type="text"
+                onClick={(event)=>{
+                    addTags(event)
+                }} placeholder="Press enter to add tags" />
+            </TagContaier>
+        </>
+    )
+}
 ```
 
 ### stories 작성

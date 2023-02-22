@@ -190,32 +190,34 @@ const Desc = styled.div`
     text-align: center;
 `
 
-const [currentTab, setCurrentTab] = useState(0)
+export const Tab = () => {
+    const [currentTab, setCurrentTab] = useState(0)
 
-const menu = [
-    {name:"Tab1", content: "Tab menu One"},
-    {name:"Tab2", content: "Tab menu Two"},
-    {name:"Tab3", content: "Tab menu Three"}
-]
+    const menu = [
+        {name:"Tab1", content: "Tab menu One"},
+        {name:"Tab2", content: "Tab menu Two"},
+        {name:"Tab3", content: "Tab menu Three"}
+    ]
 
-const selectMenu = (index) => {
-    setCurrentTab(index)
+    const selectMenu = (index) => {
+        setCurrentTab(index)
+    }
+
+    return (
+        <>
+            <TabContainer>
+                {menu.map((el,idx)=>{
+                    return (<li key={idx}
+                        onClick={()=>selectMenu(idx)}
+                        className={`${currentTab === idx ? "submenu focused":"submenu"}`}
+                        >
+                        {el.name}
+                        </li>
+                    )
+                })}
+            </TabContainer>
+            <Desc>{menu[currentTab].content}</Desc>
+        </>
+    )
 }
-
-return (
-    <>
-        <TabContainer>
-            {menu.map((el,idx)=>{
-                return (<li key={idx}
-                    onClick={()=>selectMenu(idx)}
-                    className={`${currentTab === idx ? "submenu focused":"submenu"}`}
-                    >
-                    {el.name}
-                    </li>
-                )
-            })}
-        </TabContainer>
-        <Desc>{menu[currentTab].content}</Desc>
-    </>
-)
 ```
