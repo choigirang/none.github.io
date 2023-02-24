@@ -136,60 +136,61 @@ const counterReducer = (state = count, action) => {
 ### Action
 - 우리가 함수 안에 정의한 `case action`으로 어떠한 동작을 할 것인지 설정해준다.
 - `type`은 꼭 지정해 주어야 하며, 해당 동작을 명시해주는 역할을 하기 때문에 **대문자와 Snake Case**로 작성해야 한다.
-- 필요에 따라 `payload`를 작성해 구체적인 값을 전달한다.
-```jsx
-// payload가 필요 없는 경우
-{ type: "INCREASE"}
+- 필요에 따라 `payload`를 작성해 구체적인 값을 전달한다.   
+    ```jsx
+    {type: "INCREASE"}
 
-// payload가 필요한 경우
-{ type: "SET_NUMBER", payload: 5}
-```
+    {type: "SET_NUMBER", payload: 5}
+    ```
+
+
+
 - `action`은 보통 함수 형태로 만들어 사용하며 이러한 함수를 **액션 생성자**라고 부른다.
   - 다른 파일에서도 사용하기 위해 `export`해준다.
-```jsx
-// payload가 필요 없는 경우
-const increase = () => {
-    return {
-        type: "INCREASE"
+    ```jsx
+    const increase = () => {
+        return {
+            type: "INCREASE"
+        }
     }
-}
 
-// payload가 필요한 경우
-const setNumber = (num) => {
-    return {
-        type: "SET_NUMBER",
-        payload: num
+    const setNumber = (num) => {
+        return {
+            type: "SET_NUMBER",
+            payload: num
+        }
     }
-}
-```
+    ```
+
+
 - `type`작성해보기
-```jsx
-export const increase = () => {
-    return (
-        type: "INCREASE",
-    )
-}
+    ```jsx
+    export const increase = () => {
+        return (
+            type: "INCREASE",
+        )
+    }
 
-export const decrease = () => {
-    return (
-        type: "DECREASE",
-    )
-}
-```
+    export const decrease = () => {
+        return (
+            type: "DECREASE",
+        )
+    }
+    ```
 
 
 ### Dispatch
 - `Reducer`로 Action을 전달해주는 함수이다.
 - Dispatch의 전달인자로 Action의 객체가 전달된다.
-```jsx
-// Action 객체를 직접 작성하는 경우
-dispatch({type: "INCREASE"})
-dispatch({type: "SET_NUMBER", payload: 5})
+    ```jsx
+    // Action 객체를 직접 작성하는 경우
+    dispatch({type: "INCREASE"})
+    dispatch({type: "SET_NUMBER", payload: 5})
 
-// 액션 생성자(Action Creator)를 사용하는 경우
-dispatch(increase())
-dispatch(setNumber(5)) 
-```
+    // 액션 생성자(Action Creator)를 사용하는 경우
+    dispatch(increase())
+    dispatch(setNumber(5)) 
+    ```
 
 
 ### Redux Hooks
@@ -200,35 +201,38 @@ dispatch(setNumber(5))
 
 #### useDispatch()
 - `useDispatch()`는 Action 객체를 Reducer로 전달해 주는 Dispatch 함수를 반환하는 메서드이다.
-```jsx
-import {useDispatch} from "react-redux"
+    ```jsx
+    import {useDispatch} from "react-redux"
 
-const dispatch = useDispatch()
-dispatch(increase())
-console.log(counter) // 2
+    const dispatch = useDispatch()
+    dispatch(increase())
+    console.log(counter) // 2
 
-dispatch(setNumber(5))
-console.log(counter) // 5
-```
+    dispatch(setNumber(5))
+    console.log(counter) // 5
+    ```
 
 ### useSelector()
 - `useSelector()`는 컴포넌트와 `state`를 연결하여 Redux의 `state`에 접근할 수 있게 해주는 메서드이다.
-```jsx
-import {useSelector} from "react-redux"
-const counter = useSelector(state => state)
-console.log(counter) // 1
-```
+    ```jsx
+    import {useSelector} from "react-redux"
+    const counter = useSelector(state => state)
+    console.log(counter) // 1
+    ```
 
 - App.js 에 `useDispatch`를 불러온다.
-- index,js에서 `increase`와 `decrease` 함수를 불러온다.
-```jsx
-import {useDispatch} from "react-redux"
-import {increase,decrease} from "./index.js"
-```
+- index,js에서 `increase`와 `decrease` 함수를 불러온다.  
+
+    ```jsx
+    import {useDispatch} from "react-redux"
+    import {increase,decrease} from "./index.js"
+    ```
+
+
 - `useDispatch`의 실행 값을 변수에 저장하여 `dispatch`함수를 사용한다.
-```jsx
-const dispatch = useDispatch()
-```
+    ```jsx
+    const dispatch = useDispatch()
+    ```
 - 이벤트 핸들러 안에서 `dispatch`를 통해 action 객체를 Reducer 함수로 전달해준다.
 
 
