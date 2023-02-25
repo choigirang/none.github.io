@@ -57,7 +57,7 @@ last_modified_at: 2023-02-23
 ### 예시
 - `props drilling`
 - 상위 컴포넌트에서 하위 컴포넌트로 `props` 끝까지 전달해준다.
-- [StackBlitz로 보기](https://stackblitz.com/edit/react-bvmiba?file=src%2FApp.js){: target:"_blank"}
+- [StackBlitz로 보기](https://stackblitz.com/edit/react-bvmiba?file=src%2FApp.js){: target="_blank"}
 
 
 
@@ -178,7 +178,7 @@ function Child4({ plusNum, minusNum }) {
 
 
 - 라이브러리 사용 예시
-- [StackBlitz로 보기](https://stackblitz.com/edit/react-dky3fz?file=src%2FApp.js){: target:"_blank"}
+- [StackBlitz로 보기](https://stackblitz.com/edit/react-dky3fz?file=src%2FApp.js){: target="_blank"}
 
 
 
@@ -287,7 +287,7 @@ function Child4() {
 - 느낌표가 하나씩 추가되는 애플리케이션
 - Child3, Child6는 하나의 상태를 공유하기 때문에 최상위 컴포넌트인 App에서 사애를 관리한다.
 - 따라서, 상태가 변경될 때마다 App 컴포넌트가 re-render되며 모든 컴포넌트가 re-render된다.
-- [StackBlitz로 보기](https://stackblitz.com/edit/react-ts-qpgq6d?file=App.js){: target:"_blank"}
+- [StackBlitz로 보기](https://stackblitz.com/edit/react-ts-qpgq6d?file=App.js){: target="_blank"}
 
 
 
@@ -386,7 +386,7 @@ function Child6({ greeting, setGreeting }) {
 
 
 - 라이브러리 사용 예시
-- [StackBlitz로 보기](https://stackblitz.com/edit/react-ts-szkjfd?file=App.js){: target:"_blank"}
+- [StackBlitz로 보기](https://stackblitz.com/edit/react-ts-szkjfd?file=App.js){: target="_blank"}
 
 
 

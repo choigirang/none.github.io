@@ -318,4 +318,4 @@ root.render(
 )asdasd
 ```
 
-[StackBlitz 작성해보기](https://stackblitz.com/edit/react-jq4f2e?file=src%2FREADME.md){: target:"_blank"}
+[StackBlitz 작성해보기](https://stackblitz.com/edit/react-jq4f2e?file=src%2FREADME.md){: target="_blank"}

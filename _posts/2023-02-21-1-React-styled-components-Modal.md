@@ -176,7 +176,7 @@ return (
 - 기본값의 `title`은 `Example`의 폴더 안에 Modal 컴포넌트를 의미한다.
 - 기본값의 `component`는 Modal 컴포넌트를 지칭한다.
 - `stories`는 storybook
-- [stories 설명보기](https://choigirang.github.io/react/3-React-Storybook/){: target:"_blank"}
+- [stories 설명보기](https://choigirang.github.io/react/3-React-Storybook/){:target="_blank"}
 
 
 ```jsx
