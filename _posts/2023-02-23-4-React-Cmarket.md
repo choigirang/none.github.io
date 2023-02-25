@@ -1,5 +1,5 @@
 ---
-title:  "React 19장 - Cmarket"
+title:  "React 19장 - Cmarket props drilling"
 excerpt: "Props Drilling"
 
 categories: React
