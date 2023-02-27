@@ -99,7 +99,7 @@ const option = {
     - `axios.post("url주소",{data객체},[,config])`
       - 새로운 리소스를 생성할 때 쓴다.
       - 로그인, 회원가입 등 사용자가 생성한 파일을 서버에다가 업로드할 때 사용된다.
-      - POST를 사용하면 주소창에 쿼리스ㅡ링이 남지 않기 때문에 GET보다 안전하다.
+      - POST를 사용하면 주소창에 쿼리스트링이 남지 않기 때문에 GET보다 안전하다.
       - POST 메서드의 두 번째 인자에는 본문으로 보낼 데이터를 설정한 객체 리터럴을 전달한다.
 
     ```js
@@ -132,7 +132,7 @@ const option = {
 
   - PUT
     - `axios.put(url[,data[,config]])`
-    - REST 기반 API 프로그램에서 데이터ㅏ베이스에 저장되어 있는 내용을 갱신하는 목적으로 사용된다.
+    - REST 기반 API 프로그램에서 데이터베이스에 저장되어 있는 내용을 갱신하는 목적으로 사용된다.
     - PUT 메서드는 HTML Form 태그에서 기본적으로 지원하는 HTTP 메서드가 아니다.
     - PUT 메서드는 서버에 있는 데이터베이스의 내용을 변경하는 것을 주 목적으로 사용하고 있다. 
 
@@ -147,8 +147,7 @@ const option = {
   axios.get("/users/1")
   ```
 
-### 예시
-#### Users.js
+### Users.js
 - 데이터를 불러오는 상태값을 설정한다.
 - 리액트가 처음 렌더링 될 때에 `useEffect`로 전달받은 함수 `fetchUsers`가 실행되는데, 이는 `async`로 인해 비동기 함수로 실행된다.
 - `try`를 통해 요청이 실행됐을 때 `users`,`error`값은 `null`로 초기화되고, `loading`의 상태값은 `true`로 바뀐다.
@@ -206,7 +205,7 @@ export default Users
 ```
 
 
-#### App.js
+### App.js
 ```jsx
 import React from "react"
 import Users from "./Users"
