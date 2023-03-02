@@ -41,4 +41,3 @@ last_modified_at: 2023-02-28
   ```
   - `parcle` 번들러가 읽을 수 있도록 작성한 것이다.
 - `tsconfig.json`을 만든다.
-  - 
