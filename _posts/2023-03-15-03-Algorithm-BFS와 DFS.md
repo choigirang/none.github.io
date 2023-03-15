@@ -1,5 +1,5 @@
 ---
-title:  "Algorithm 개념 5장 - BFS와 DFS"
+title:  "Algorithm 개념 6장 - BFS와 DFS"
 excerpt: "BFS와 DFS 예시"
 
 categories: Algorithm
