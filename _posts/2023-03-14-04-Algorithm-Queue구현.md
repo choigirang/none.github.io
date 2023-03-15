@@ -129,4 +129,15 @@ class Queue {
   - Queue가 추가될 때 rear값은 커지고, front가 변경이 된다.
 - `enqueue(element){}`
   - `this.storage[this.rear] = element`
-    - 
+    - Queue의 마지막 요소에 인자를 추가한다.
+  - `this.rear ++`
+    - 인덱스를 증가시킨다.
+- `dequeue(){...}`
+  - `if(this.size()===0) return;`
+    - 빈 큐에 추출하면 그냥 리턴시킨다.
+  - `const result = this.storage[this.front]`
+    - 추출한 값은 삭제되기 때문에 미리 저장한다.
+  - `delete this.storage[this.front]`
+    - Queue에서 값을 삭제한다.
+  - `this.front += 1`
+    - Queue에 몇 개의 값이 존재하는지 알기 위해, size()시 rear에서 front를 빼줄 것이기 때문에 front를 증가시킨다.
