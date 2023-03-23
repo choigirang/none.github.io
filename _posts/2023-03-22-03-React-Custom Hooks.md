@@ -145,6 +145,7 @@ export default useInputs;
 ```
 
 ## 실습
+[custom hook 실습해보기](https://codesandbox.io/s/custom-hook-1-z84d5j?from-embed)
 - 임의의 데이터로 작성한 public/data.json 파일에서 fetch를 받아오는 App.js가 있다.
 - `useEffect`를 custom hook으로 만들어 분리한다.
 
@@ -238,6 +239,7 @@ export default useInputs;
   ```
 
 ## 실습 2
+[custom hook 실습해보기](https://codesandbox.io/s/custom-hooks-silseub-2-h3iepv?from-embed)
 - 작성되어 있는 App.js에서 input 요소를 ./component/Input 컴포넌트와 custom hooks인 ./util/useInput으로 분리한다.
   ```jsx
   import {useState} from "react";
@@ -246,13 +248,15 @@ export default useInputs;
   import "./styles.css";
 
   export default function App(){
-    const [firstNameValue, setFirstNameValue] = useState("");
-    const [lastNameValue, setLastNameValue] = useState("");
+    const [firstName, setFirstName] = useInput("");
+    const [lastName, setLastName] = useInput("");
     const [nameArr, setNameArr] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setNameArr([...nameArr, `${firstNameValue} ${lastNameValue}`]);
+        setFirstName("");
+        setLastName("");
     }
 
     return <>
@@ -260,22 +264,8 @@ export default useInputs;
             <h1>Name List</h1>
             <div className="name-form">
                 <form onSubmit={handleSubmit}>
-                    <div className="name-input">
-                        <label>성</label>
-                        <input
-                            value={firstNameValue}
-                            onChange={(e)=>setFirstNameValue(e.target.value)}
-                            type="text"
-                        >
-                    </div>
-                    <div className="name-input">
-                        <label>이름</label>
-                        <input
-                            value={lastNameValue}
-                            onChange={(e)=>setLastNameValue(e.target.value)}
-                            type="text"
-                        >
-                    </div>
+                    <Input label={"성"} value={firstName} onChange={setFirstName}>
+                    <Input label={"이름"} value={lasttName} onChange={setLasttName}>
                     <button>제출</button>
                 </form>
             </div>
@@ -294,12 +284,27 @@ export default useInputs;
 - Input 컴포넌트로 input 요소들을 분리한다.
   ```jsx
   // Input.js
-  const Input = ({label, value}) => {
+  const Input = ({label,value,onChange}) => {
     return <>
         <div className="name-input">
             <label>{label}</label>
-            <input>
+            <input type="text" value={value} onChange={(e) => onChange(e.target.value)}/>
         </div>
     </>
+  }
+  ```
+
+- useInput으로 cunstom hooks를 작성해준다.
+  ```jsx
+  import {useState} from "react";
+
+  function useInput(value){
+    const [value, setValue] = useState(value);
+
+    const handleCange = (newValue) = {
+        setValue(newValue);
+    }
+
+    return [value, handleChange];
   }
   ```
