@@ -264,8 +264,8 @@ export default useInputs;
             <h1>Name List</h1>
             <div className="name-form">
                 <form onSubmit={handleSubmit}>
-                    <Input label={"성"} value={firstName} onChange={setFirstName}>
-                    <Input label={"이름"} value={lasttName} onChange={setLasttName}>
+                    <Input label={"성"} value={firstName} onChange={setFirstName} />
+                    <Input label={"이름"} value={lasttName} onChange={setLasttName} />
                     <button>제출</button>
                 </form>
             </div>
