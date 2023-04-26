@@ -3,7 +3,7 @@ title: "React 47장 - React-Query (3)"
 excerpt: "React Query 배워보기 - 무한 스크롤"
 
 categories: React
-tags: [useQuery, useInfiniteQuery]
+tags: [useQuery, useInfiniteQuery, InfiniteScroll, 무한스크롤]
 
 toc: true
 toc_sticky: true
@@ -140,32 +140,63 @@ npm install react-infinite-scroller
 
 ```jsx
 import InfiniteScroll from "react-infinite-scroller";
-import {useInfiniteQuery} from "react-query";
+import { useInfiniteQuery } from "react-query";
 
 const initialUrl = "https://swapi.dev/api/people/";
 const fetchUrl = async (Url) => {
-  const res = await fetch(url);
+  const res = await fetch(Url);
   return res.json();
 };
 
 function InfinitePeople() {
-  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery(
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isFetching,
+    isError,
+    error,
+  } = useInfiniteQuery(
     "sw-people",
-    ({ pageParam = initialUrl}) => fetchUrl(pageParam),{
-      getNextPageParam: (lastPage) => lastPage.next || undefined
+    ({ pageParam = initialUrl }) => fetchUrl(pageParam),
+    {
+      getNextPageParam: (lastPage) => lastPage.next || undefined,
     }
   );
 
+  if (isLoading) {
+    return <div className="loading">Loading...</div>;
+    // style의 position 값을 고정시켜 스크롤을 하더라도 Loading 메시지가 보여지게 한다.
+  }
+  if (isError) {
+    return <div className="error">{error.toString()}</div>;
+  }
+
   return (
-    <InfiniteScroll loadMore={fetchNextPage} hasMore={hasNextPage}>
-      {data.page.map((pageData) => )}
-    </InfiniteScroll>
-  )
+    <>
+      {isFetcing && <div className="loading">Loading...</div>}
+      <InfiniteScroll loadMore={fetchNextPage} hasMore={hasNextPage}>
+        {data.page.map((pageData) =>
+          pageData.results.map((person) => (
+            <Person
+              key={person.name}
+              name={person.name}
+              hairColor={person.hair_color}
+              eyeColor={person.eye_color}
+            />
+          ))
+        )}
+      </InfiniteScroll>
+    </>
+  );
 }
 ```
 
 - 페이지의 끝에 도달했을 때는 `loadMore`을 통해 `fetchNextPage`를 실행시키고, 데이터가 더 있는지 확인하기 위해 `hasMore`을 통해 `hasNextPage`가 있는지 확인한다.
 - data는 `pages`와 `pageParams`를 가지고 있다.
+- isLoading을 활용하지 않을 경우, 데이터를 불러오는 과정에서 data가 없다고 인식하여 우리가 설정한 undefined를 전달하기 때문에 isLoading을 활용한다.
+- 데이터를 가져오는 중에는 가져오는 중의 문구가 필요하기 때문에 isFetching을 사용해 화면에 데이터를 불러오는 문구를 사용자에게 알려준다.
 
 ```jsx
 { pageParams: [undefined],
@@ -175,5 +206,45 @@ function InfinitePeople() {
     next: "https://swapi.dev/api/people/?page=2"
     previous: null
     results: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+}
+```
+
+#### 2. 연습
+
+- `getNextPageParam`을 실행하여 처음 시작 주소인 "https://swapi.dev/api/species/"의 데이터를 가져온다.
+- 받아온 데이터의 lastPage의 next의 주소값이 pageParam이 되고, 새로운 주소값으로 `fetchSpecies`를 실행한다.
+- 그렇게 받아온 값은 다시 `data`가 된다.
+- 만약 다음 페이지가 없을 경우 `hasNextpage`가 undefined가 된다.
+- 이 값을 `InfiniteScroll`에서 사용하여 스크롤에 도달했을 때 `fetchNextPage`를 실행한다.
+
+```jsx
+import InfiniteScroll from "react-infinite-scroller";
+import { useInfiniteQuery } from "react-query";
+
+const initialUrl = "https://swapi.dev/api/species/";
+async function fetchSpecies(Url) {
+  const res = await fetch("https://swapi.dev/api/species/");
+  return res.json();
+}
+
+function InfiniteSpecies() {
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isFetching,
+    isError,
+    error,
+  } = useinfiniteQuery(
+    "example",
+    ({ pageParam = initialUl }) => fetchSpecies(pageParam),
+    {
+      getNextPageParam: (lastPage) => lastPage.next || undefined,
+    }
+  );
+
+  // 이하 생략
+  <InfinitiScroll loadMore={fetchNextPage} hasMore={hasNextPage} />;
 }
 ```
