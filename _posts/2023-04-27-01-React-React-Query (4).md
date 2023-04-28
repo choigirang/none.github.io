@@ -8,7 +8,7 @@ tags: [useQuery, customhooks, 전역오류]
 toc: true
 toc_sticky: true
 
-date: 2023-04-27
+date: 2023-04-28
 last_modified_at: 2023-04-27
 ---
 
