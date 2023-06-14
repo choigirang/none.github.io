@@ -60,11 +60,38 @@ if(confirm("링크로 이동하시겠습니까?")document.location = "https://gi
 
 ```js
 Number(0); // null
-Number(undefined); // Nan
+Number(undefined); // NaN
 
 Boolean(1); // true
 Boolean("1"); // true
 Boolean(0); // false
 Boolean(""); // false
 Boolean(" "); // true
+```
+
+## 반복문
+
+- 특정 조건을 만족할 때까지 반복문이 실행된다.
+- `for`, `while`, `do..while`등이 있다.
+- `while(true)`는 무한 반복하기 때문에 주의해야 한다.
+- `do...while`문은 `while`과 비슷한데 조건문을 아래로 옮길 수 있다.
+  - `while`에 작성된 조건문까지 `do`의 코드를 실행한다.
+  - `do`에 작성된 코드를 최소 한 번은 실행한다는 것에서 `while`과 큰 차이가 있다.
+- `break`를 사용해서 반복문을 빠져나올 수 있고, `continue`는 반복문을 멈추고 다음 반복으로 진행된다.
+
+```js
+for (let i = 0; i < 10; i++) {
+  if (i % 2) continue;
+  console.log(i);
+}
+
+while (true) {
+  let answer = confirm("계속 할까요?");
+  if (!answer) break;
+}
+
+do {
+  // 실행될 코드
+  i++;
+} while (i < 10);
 ```
