@@ -3,13 +3,13 @@ title: "JavaScript 7장 - 개념짚기 (1)"
 excerpt: "자바스크립트"
 
 categories: JavaScript
-tags: [자바스크립트, JavaScript]
+tags: [자바스크립트, JavaScript, 형변환, 함수, switch]
 
 toc: true
 toc_sticky: true
 
-date: 2023-06-13
-last_modified_at: 2022-06-13
+date: 2023-06-14
+last_modified_at: 2022-06-14
 ---
 
 # JavaScript
