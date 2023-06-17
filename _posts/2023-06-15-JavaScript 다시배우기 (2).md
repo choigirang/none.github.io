@@ -8,8 +8,8 @@ tags: [자바스크립트, JavaScript, 객체, 메서드, 프로퍼티]
 toc: true
 toc_sticky: true
 
-date: 2023-06-14
-last_modified_at: 2022-06-14
+date: 2023-06-16
+last_modified_at: 2022-06-17
 ---
 
 # JavaScript
@@ -17,7 +17,7 @@ last_modified_at: 2022-06-14
 ## Object 객체
 
 - `key`와 `value`로 구성되어 여러 개의 속성을 가질 수 있는 것을 말한다.
-- `key`가 갖고 있는 값에 접근하려면 두 가지 방법으로 접근할 수 있다.
+- `key`가 갖고 있는 값에 접근하려면 두 가지 방법으로\ㅜㅡㅕㅑ,} 접근할 수 있다.
 
 ```js
 const data = {
@@ -103,4 +103,65 @@ const example = {
     console.log(`$(this.name) 안녕하세요.`);
   },
 };
+```
+
+- `this`는 실행되는 시점에서 결정된다.
+
+```js
+hello: function (){
+  console.log(`${this.name}, hello`)
+}
+// 아직 this name이 결정되지 않았다.
+let Jane = {
+  name : "Jane"
+}
+
+let Mike = {
+  name: "Mike"
+}
+
+Mike.hello(); // Mike, hello
+Jane.hello(); // Mike, hello
+```
+
+- **화살표 함수는 일반 함수와 달리 자신만의 this를 가질 수 없으며, 화살표 함수에서 this를 사용 시 외부에서 값을 가져온다.**
+
+```js
+let boy = {
+  name: "Mike",
+  hello: () => {
+    console.log(`${this.name}, hello`);
+  },
+};
+
+boy.hello(); // Mike hello가 아닌 전역 객체를 불러온다.
+```
+
+- 이점, `this`를 사용하면 참조하는 원본 객체의 값이 변하더라도, 이를 참조하는 다른 객체의 값은 변하지 않는다.
+
+```js
+let boy = {
+  name: "Mike",
+  hello: function () {
+    console.log(`${boy.name}, Hello`);
+  },
+};
+
+let man = boy;
+man.name = "Gone";
+man.hello(); // Gone, Hello
+
+boy = null;
+man.hello(); // Error, 참조하는 boy가 null
+
+let anotherBoy = {
+  name: "Gone",
+  hello: function () {
+    console.log(`${this.name}, hello`);
+  },
+};
+
+let child = anotherBoy;
+anotherBoy = null;
+child.hello(); // Gone, hello
 ```
