@@ -17,7 +17,7 @@ last_modified_at: 2022-06-18
 ## Object 객체
 
 - `key`와 `value`로 구성되어 여러 개의 속성을 가질 수 있는 것을 말한다.
-- `key`가 갖고 있는 값에 접근하려면 두 가지 방법으로\ㅜㅡㅕㅑ,} 접근할 수 있다.
+- `key`가 갖고 있는 값에 접근하려면 두 가지 방법으로 접근할 수 있다.
 
 ```js
 const data = {
@@ -164,4 +164,18 @@ let anotherBoy = {
 let child = anotherBoy;
 anotherBoy = null;
 child.hello(); // Gone, hello
+```
+
+## 배열
+
+- 객체에 사용하는 `for ... in ...`과 달리 `for ... of ...`와 헷갈리지 않도록 주의해야 한다.
+
+```js
+const example = ["1", "2", "3", "4"];
+
+for (const i of example) {
+  console.log(i);
+}
+
+// 1, 2, 3, 4
 ```
