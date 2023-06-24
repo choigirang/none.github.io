@@ -9,7 +9,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-06-14
-last_modified_at: 2022-06-14
+last_modified_at: 2022-06-24
 ---
 
 # JavaScript
