@@ -3,13 +3,13 @@ title: "React 48장 - useCallback과 useMemo"
 excerpt: "useCallback과 useMemo 최적화"
 
 categories: React
-tags: [useCallback, useMemo]
+tags: [useCallback, useMemo, memo]
 
 toc: true
 toc_sticky: true
 
 date: 2023-06-27
-last_modified_at: 2023-06-27
+last_modified_at: 2023-06-29
 ---
 
 # React
@@ -175,3 +175,153 @@ function App() {
 ```
 
 ## useCallback
+
+- `useMemo`와 마찬가지로, 값이 아닌 함수를 메모이제이션 하기 위해서 사용된다.
+- 첫 번째 인자로 함수를, 두 번째 인자로 배열을 넣어두면, 배열이 변경될 때까지 저장해놓고 재사용할 수 있다.
+- 자바스크립트에서 함수도 객체로 취급되기 때문에 메모리 주소에 의한 참조 비교가 일어난다.
+- 컴포넌트가 렌더링 될 때마다 함수를 새로 선언되는 것을 방지하여 성능 항샹을 목적으로 하는데, 단순히 컴포넌트 내에서 함수를 반복해서 생성하지 않기 위해 사용하는 것은 큰 의미가 없거나, `useCallback`조차도 메모리를 사용하기 때문에 오히려 손해인 경우도 있다.
+- `useEffect`처럼 첫 번째 인자가 두 번째 인자를 의존하여, 두 번째 인자가 변경될 때만 첫 번째 인자의 코드가 실행되듯이, 첫 번째 함수가 의존해야 하는 배열인 두 번째 인자로 함수를 호출한다.
+
+### 예시
+
+- 아래의 코드에서 컴포넌트의 API 호출 코드는 `fetchUser` 함수가 변경될 때만 호출하려고 한다.
+- `fetchUser`은 함수이기 때문에, `userId`가 바뀌든 말든 컴포넌트가 렌더링될 때마다 (함수가, 함수 또한 객체로 취급되기 때문에) 새로운 참조값으로 변경된다.
+- 그러면 `useEffect()` 함수가 호출되어 `user`상태값이 바뀌고, 또 다시 `useEffect()`함수가 호출되는 불필요한 재호출이 발생된다.
+  - 참조값이 다르면 `false`이기 때문에, 다르다고 판단된다.
+
+```js
+function Profile({ userId }) {
+  const [user, setUser] = useState(null);
+
+  const fetchUser = () =>
+    fetch("https://your-api.com/users/${userId}")
+      .then((res) => res.json())
+      .then(({ user }) => user);
+
+  useEffect(() => {
+    fetchUser().then((user) => setUser(user));
+  }, [fetchUser]);
+}
+```
+
+- 이러한 상황에서 `useCallback` 함수를 이용하여 컴포넌트가 다시 렌더링되더라도 참조값을 동일하게 유지시킬 수 있다.
+- `useCallback`을 사용하여 의도했던대로 `userId`가 바뀌었을 때만 `fetchUser` 함수가 실행되게 하고, `fetchUser`가 변경될 때만 `useEffect`가 실행되도록 한다.
+
+```js
+function Profile({ userId }) {
+  const [user, setUser] = useState(null);
+
+  const fetchUser = useCallback(
+    () =>
+      fetch("https://your-api.com/users/${userId}")
+        .then((res) => res.json())
+        .then(({ user }) => user),
+    [userId]
+  );
+}
+
+userEffect(() => {
+  fetchUser().then((user) => setUser(user));
+}, [fetchUser]);
+```
+
+#### React.memo()
+
+- `useMemo, useCallback`과 마찬가지로 컴포넌트 자체를 기억하여, 다음 렌더링이 일어날 때 `props`가 같다면 기억된 컴포넌트를 재사용한다.
+- 같은 `props`로 렌더링이 자주 일어나는 컴포넌트에 사용할 때 유용하다.
+-
+
+```jsx
+export function Movie({ title, date }) {
+  return (
+    <div>
+      <div>Movie Title: {title}</div>
+      <div>Movie Date: {date}</div>
+    </div>
+  );
+}
+
+export const MemoMovie = React.memo(Movie);
+```
+
+### 활용예시
+
+- 컴포넌트를 `React.memo`로, 함수를 `useCallback`으로 활용할 수 있다.
+
+```jsx
+function Light({ room, on, toggle }) {
+  console.log({ room, on });
+  return (
+    <button onClick={toggle}>
+      {room} {on ? "on" : "off"}
+    </button>
+  );
+}
+
+export default function SmartHome() {
+  const [room1, setRoom1] = useState(false);
+  const [room2, setRoom2] = useState(false);
+  const [room3, setRoom3] = useState(false);
+
+  const toggleRoom1 = () => setRoom1(!room1);
+  const toggleRoom2 = () => setRoom2(!room2);
+  const toggleRoom3 = () => setRoom3(!room3);
+
+  return (
+    <div>
+      <Light room="침실" on={room1} toggle={toggleRoom1}></Light>
+      <Light room="욕실" on={room2} toggle={toggleRoom2}></Light>
+      <Light room="거실" on={room3} toggle={toggleRoom3}></Light>
+    </div>
+  );
+}
+```
+
+- 위의 코드는 방의 불을 끄고 켤 때마다 `console`에 방에 대한 정보와 불이 켜지고 꺼진 것에 대한 정보를 나타낸다.
+- `button`을 클릭하면 `console`에 침실, 욕실, 거실에 대한 메세지가 전부 출력되는데, 이는 `Light` 컴포넌트가 렌더링될 때마다 해당 방에 대한 메세지를 출력하게 되고, 버튼 클릭으로 인한 상태 변경과는 독립적으로 동작하기 때문이다.
+- 내가 클릭한 것에 대한 컴포넌트가 리렌더링되길 원한다면 `React.memo`와 `useCallback`을 함께 활용할 수 있게 된다.
+  - 우선 `Light`컴포넌트를 `React.memo`로 감싸, 전달되는 `props`가 변경되지 않는다면 리렌더링되지 않도록 한다.
+  - 컴포넌트에 대한 불필요한 렌더링은 방지했지만, `SmartHome`에 대한 상태값이 변경되며 리렌더링이 발생하게 되고, 작성한 `toggleRoom`함수에 대한 새로운 참조값을 할당하게 되는 불필요한 렌더링을 방지하기 위해 `useCallback`을 함께 활용한다.
+
+```jsx
+function Light({ room, on, toggle }) {
+  console.log({ room, on });
+  return (
+    <button onClick={toggle}>
+      {room} {on ? "on" : "off"}
+    </button>
+  );
+}
+
+Light = React.memo();
+// 컴포넌트의 불필요한 렌더링 방지
+
+export default function SmartHome() {
+  const [room1, setRoom1] = useState(false);
+  const [room2, setRoom2] = useState(false);
+  const [room3, setRoom3] = useState(false);
+
+  const toggleRoom1 = useCallback(() => {
+    setRoom1(!room1);
+  }, [room1]);
+  const toggleRoom2 = useCallback(() => {
+    setRoom1(!room2);
+  }, [room3]);
+  const toggleRoom3 = useCallback(() => {
+    setRoom1(!room3);
+  }, [room3]);
+  // 함수 리렌더링 방지
+
+  // const toggleRoom1 = () => setRoom1(!room1);
+  // const toggleRoom2 = () => setRoom2(!room2);
+  // const toggleRoom3 = () => setRoom3(!room3);
+
+  return (
+    <div>
+      <Light room="침실" on={room1} toggle={toggleRoom1}></Light>
+      <Light room="욕실" on={room2} toggle={toggleRoom2}></Light>
+      <Light room="거실" on={room3} toggle={toggleRoom3}></Light>
+    </div>
+  );
+}
+```
