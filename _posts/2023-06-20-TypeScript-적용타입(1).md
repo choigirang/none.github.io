@@ -17,14 +17,13 @@ last_modified_at: 2022-06-20
 ## Input 이벤트
 
 - `useState`를 이용해 우리가 입력한 값을 기억하고 바꿔주고 싶을 때, 입력이 발생하는 `onChange`의 `event.target.value`에 대한 값에 대한 타입 지정이다.
+- `input`에 이벤트가 발생하는 타입은 `HTMLInputElement`이다.
 
 ```jsx
-const [example, setExample] = useState<string>("");
-const handleChange = (e) => {
-    setExample(e.target.value);
-}
+const [example, setExample] = useState < string > "";
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setExample(e.target.value);
+};
 
-return (
-    <input type="text" onChange=((e) => hanldeChange(e))/>
-)
+return <input type="text" onChange={(e) => hanldeChange(e)} />;
 ```
