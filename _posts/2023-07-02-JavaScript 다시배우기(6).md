@@ -3,13 +3,13 @@ title: "JavaScript 9장 - 개념짚기 (6)"
 excerpt: "자바스크립트"
 
 categories: JavaScript
-tags: [자바스크립트, JavaScript]
+tags: [자바스크립트, JavaScript, 문자열]
 
 toc: true
 toc_sticky: true
 
 date: 2023-07-02
-last_modified_at: 2022-07-05
+last_modified_at: 2022-07-07
 ---
 
 # JavaScript
@@ -70,3 +70,32 @@ str.substring(5, 2); // cde
 ### substr(n,m)
 
 - `substring`과 비슷하게 생겼지만, `n`부터 시작하여 `m`개를 가져온다.
+
+### trim()
+
+- 앞 뒤의 공백을 제거한다.
+
+```js
+let str = "   coading   ";
+str.trim(); // coading
+```
+
+### repeat(n)
+
+- 문자를 `n`번 반복한다.
+
+```js
+let str = "HI";
+str.repeat(3); // HIHIHI
+```
+
+### 문자열 비교
+
+- 숫자와 같이 문자도 크기 비교가 가능한데, 문자의 **십진법, 십육진법, 아스키 코드** 등으로 크기를 비교한다.
+- 대문자가 소문자보다 큰 숫자를 가진다.
+- `codePointAt()`을 사용하거나 미리 알고있는 숫자코드를 `fromCodePoint()`로 문자를 출력하거나 변환할 수 있다.
+
+```js
+"a".codePointAt(0); // 97
+String.fromCodePoint(97); // a
+```
