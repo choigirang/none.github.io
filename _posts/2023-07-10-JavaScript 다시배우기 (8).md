@@ -1,5 +1,5 @@
 ---
-title: "JavaScript 14장 - 개념짚기 (8)"
+title: "JavaScript 15장 - 개념짚기 (8)"
 excerpt: "자바스크립트"
 
 categories: JavaScript
