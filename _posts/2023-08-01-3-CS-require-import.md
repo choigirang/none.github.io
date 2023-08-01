@@ -1,5 +1,5 @@
 ---
-title: "CS 21장"
+title: "CS 21장 require vs import"
 excerpt: ""
 
 categories: CS
