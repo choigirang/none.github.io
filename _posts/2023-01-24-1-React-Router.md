@@ -1,5 +1,5 @@
 ---
-title:  "React 5장 - Router"
+title: "React 5장 - Router"
 excerpt: "라우팅 학습"
 
 categories: React
@@ -7,19 +7,23 @@ tags: [React, 리액트, 컴포넌트, JSX, router, SSR, CSR]
 
 toc: true
 toc_sticky: true
- 
+
 date: 2023-01-24
 last_modified_at: 2023-01-24
 ---
+
 # React
+
 ## SPA
+
 - Single-Page-Application의 약자이다.
 - 사용자에 요청에 페이지 전체를 바꿔서 보여주는 방식이 아닌 필요한 부분만을 로딩하는 방식이다.
 - 기존 브라우저는 웹페이지를 미리 준비해두었다가, 서버 측에서 데이터를 전달받아 렌더링하는 방식이었다.
 - 규모가 커지고 사용자와의 상호작용이 많아짐에 따라 기존의 서버 방식의 속도 저하 문제가 발생했다. 이를 해결하기 위한 것이 SPA방식이다.
-- CSR방식이다 ([SSR과 CSR](https://choigirang.github.io/interview/3-Interview-SSR%EA%B3%BC-CSR/){: target="_blank"})
+- CSR방식이다 ([SSR과 CSR](https://choigirang.github.io/CS/3-CS-SSR%EA%B3%BC-CSR/){: target="\_blank"})
 
 ## Router
+
 - 사용자가 요청한 URL에 따라 해당 URL에 맞는 페이지를 보여주는 것이다.
 - 여러 라우팅 관련 라이브러리 중 `React Router`가 가장 많이 사용된다.
 - 리액트 SPA에서는 경로에 따라 다른 뷰를 보여줄 수 있다.
@@ -29,8 +33,8 @@ last_modified_at: 2023-01-24
   - Link : `a`태그와 비슷한 역할을 하며, Link 컴포넌트를 누르면 화면을 변경시키는 역할을 한다.
     - `a`태그는 페이지 전환 시, 처음부터 렌더링을 시키는 새로고침 현상이 있지만, Link컴포넌트는 페이지 전환을 방지하는 기능이 내장되어 있어 SPA구현에 적합하다.
 
-
 ## Router 사용
+
 - `npm install react-router-dom --save`를 입력하여 Router를 설치한다.
 - package.json 파일에 `dependencies` 중 `react-router-dom`이 있는지 확인한다.
 - Router 라이브러리를 최상위 컴포넌트에 작성한다.
@@ -60,11 +64,9 @@ function App(){
 }
 ```
 
-
 #### 예시
+
 - index.js
-
-
 
 ```jsx
 import React from "react"
@@ -80,58 +82,52 @@ ReactDOM.render(
 )
 ```
 
-
 - Home 컴포넌트
 
-
 ```jsx
-import React from "react"
+import React from "react";
 
-function Home(){
-    return(
-        <div>
-            <h1>HOME</h1>
-        </div>
-    )
+function Home() {
+  return (
+    <div>
+      <h1>HOME</h1>
+    </div>
+  );
 }
 
-export default Home
+export default Home;
 ```
-
 
 - About 컴포넌트
 
-
 ```jsx
-import React from "react"
+import React from "react";
 
-function About(){
-    return(
-        <div>
-            <h1>About</h1>
-        </div>
-    )
+function About() {
+  return (
+    <div>
+      <h1>About</h1>
+    </div>
+  );
 }
 
-export default About
+export default About;
 ```
-
 
 - App 컴포넌트
 
-
 ```jsx
-import {Route, Routes} from "react-router-dom"
-import Home from "./Home.js"
-import About from "./About.js"
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home.js";
+import About from "./About.js";
 
-function App(){
-    return(
-        <Routes>
-            <Routes path="/" element={<Home />} />
-            <Routes path="/About" element={<About />} />
-        </Routes>
-    )
+function App() {
+  return (
+    <Routes>
+      <Routes path="/" element={<Home />} />
+      <Routes path="/About" element={<About />} />
+    </Routes>
+  );
 }
 
 export default App;
