@@ -82,4 +82,45 @@ app.get("/user/:id", (req, res) => {
 - 이처럼 보다 간결한 코드를 구현할 수 있으며 다양한 미들웨어를 사용할 수 있다.
   - `cors, body-parser...`
 
-###
+### 미들웨어
+
+- 운영체제와 응용프로그램 사이에서 실행되는 소프트웨어이다.
+- Express에서는 요청과 응답 사이에서 특정 목적을 위해 실행되는 메서드를 의미한다.
+
+```js
+app.use(express.json()); //1
+app.use("/", express.static(path.join(__dirname, "public"))); //2
+app.get("/", (req, res, next) => next()); //3
+```
+
+### 라우팅
+
+- url 요청에 따른 응답 처리를 의미한다.
+
+```js
+app.get("/", (req, res, next) => res.send(200));
+```
+
+#### 예시
+
+```js
+app.use(express.json());
+app.use(express.unlencoded({extended: false}));
+app.use('/', express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  res.send("");
+})
+
+app.use((req, res, next) => {
+  console.log(req)l
+  const err = new Error("");
+  error.status = 404;
+  next(error);
+})
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.render("err", err);
+})
+```
