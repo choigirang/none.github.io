@@ -100,4 +100,45 @@ import "express" from "express";
 ### listen
 
 - 포트 넘버와 콜백 함수를 인자로 받아서 서버를 실행하고, 클라이언트 요청에 대해 받아들일 준비를 한다고 생각하면 된다.
-- 쉽게 말해 서버를 실행한다.
+- 쉽게 말해 서버를 실행한다. 미들웨어
+
+- 운영체제와 응용프로그램 사이에서 실행되는 소프트웨어이다.
+- Express에서는 요청과 응답 사이에서 특정 목적을 위해 실행되는 메서드를 의미한다.
+
+```js
+app.use(express.json()); //1
+app.use("/", express.static(path.join(__dirname, "public"))); //2
+app.get("/", (req, res, next) => next()); //3
+```
+
+### 라우팅
+
+- url 요청에 따른 응답 처리를 의미한다.
+
+```js
+app.get("/", (req, res, next) => res.send(200));
+```
+
+#### 예시
+
+```js
+app.use(express.json());
+app.use(express.unlencoded({extended: false}));
+app.use('/', express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  res.send("");
+})
+
+app.use((req, res, next) => {
+  console.log(req)l
+  const err = new Error("");
+  error.status = 404;
+  next(error);
+})
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.render("err", err);
+})
+```
