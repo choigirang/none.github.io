@@ -82,4 +82,22 @@ app.get("/user/:id", (req, res) => {
 - 이처럼 보다 간결한 코드를 구현할 수 있으며 다양한 미들웨어를 사용할 수 있다.
   - `cors, body-parser...`
 
-###
+### require...
+
+- 설치한 라이브러리를 불러온다.
+- 추가적으로 많이 사용되는 것은 `cors, body-parser...` 등이 있다.
+- `express`인 `app`에서, `cors`를 사용하겠다는 코드이다.
+- `ES6`인 `import`로도 사용이 가능하다.
+
+```js
+// CommonJS
+const express = require('express');
+
+// ES6
+import "express" from "express";
+```
+
+### listen
+
+- 포트 넘버와 콜백 함수를 인자로 받아서 서버를 실행하고, 클라이언트 요청에 대해 받아들일 준비를 한다고 생각하면 된다.
+- 쉽게 말해 서버를 실행한다.
