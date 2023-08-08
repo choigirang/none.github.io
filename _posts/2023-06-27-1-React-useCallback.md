@@ -1,5 +1,5 @@
 ---
-title: "React 48장 - useCallback과 useMemo"
+title: "React 49장 - useCallback과 useMemo"
 excerpt: "useCallback과 useMemo 최적화"
 
 categories: React

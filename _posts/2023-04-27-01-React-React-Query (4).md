@@ -1,5 +1,5 @@
 ---
-title: "React 47장 - React-Query (4)"
+title: "React 48장 - React-Query (4)"
 excerpt: "React Query 배워보기 - Custom hook 사용하기"
 
 categories: React

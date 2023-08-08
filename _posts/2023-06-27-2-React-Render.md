@@ -1,5 +1,5 @@
 ---
-title: "React 49장 - rendering, re-render"
+title: "React 50장 - rendering, re-render"
 excerpt: "rendering, re-render"
 
 categories: React

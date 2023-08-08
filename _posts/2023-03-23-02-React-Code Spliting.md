@@ -1,5 +1,5 @@
 ---
-title: "React 40장 - React.lazy()와 Suspense"
+title: "React 39장 - React.lazy()와 Suspense"
 excerpt: "React.lazy()와 Suspense"
 
 categories: React

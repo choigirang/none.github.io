@@ -1,5 +1,5 @@
 ---
-title: "React 47장 - React-Query (2)"
+title: "React 45장 - React-Query (2)"
 excerpt: "React Query 배워보기 - useMutation"
 
 categories: React

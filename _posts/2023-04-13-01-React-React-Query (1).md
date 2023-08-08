@@ -1,5 +1,5 @@
 ---
-title: "React 46장 - React-Query (1)"
+title: "React 44장 - React-Query (1)"
 excerpt: "React Query 배워보기 - useQuery 사용과 QueryDevTools"
 
 categories: React
