@@ -1,5 +1,5 @@
 ---
-title: "React 56장 - 프로젝트 (6)"
+title: "React 57장 - 프로젝트 (6)"
 excerpt: "next.js에서의 persist"
 
 categories: React
