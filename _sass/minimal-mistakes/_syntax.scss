@@ -6,10 +6,10 @@ div.highlighter-rouge,
 figure.highlight {
   position: relative;
   margin-bottom: 1em;
-  background: $base04;
-  color: $base00;
+  background: $base00;
+  color: $base05;
   font-family: $monospace;
-  font-size: 0.7rem;
+  font-size: $type-size-6;
   line-height: 1.8;
   border-radius: $border-radius;
 
@@ -62,7 +62,7 @@ figure.highlight {
 .highlight {
   .c {
     /* Comment */
-    color: gray;
+    color: $base04;
   }
   .err {
     /* Error */
@@ -70,7 +70,7 @@ figure.highlight {
   }
   .k {
     /* Keyword */
-    color: #ff0086;
+    color: $base0e;
   }
   .l {
     /* Literal */
@@ -78,15 +78,15 @@ figure.highlight {
   }
   .n {
     /* Name */
-    color: white;
+    color: $base05;
   }
   .o {
     /* Operator */
-    color: white;
+    color: $base0c;
   }
   .p {
     /* Punctuation */
-    color: #6D6D6D;
+    color: $base05;
   }
   .cm {
     /* Comment.Multiline */
@@ -98,7 +98,7 @@ figure.highlight {
   }
   .c1 {
     /* Comment.Single */
-    color: #6A9856;
+    color: $base04;
   }
   .cs {
     /* Comment.Special */
@@ -173,15 +173,15 @@ figure.highlight {
   }
   .na {
     /* Name.Attribute */
-    color: #82C5EC;
+    color: $base0d;
   }
   .nb {
     /* Name.Builtin */
-    color: #FFCD60;
+    color: $base05;
   }
   .nc {
     /* Name.Class */
-    color: #41BB9C;
+    color: $base0a;
   }
   .no {
     /* Name.Constant */
@@ -205,7 +205,7 @@ figure.highlight {
   }
   .nl {
     /* Name.Label */
-    color: #82c5ec;
+    color: $base05;
   }
   .nn {
     /* Name.Namespace */
@@ -217,11 +217,11 @@ figure.highlight {
   }
   .py {
     /* Name.Property */
-    color: white;
+    color: $base05;
   }
   .nt {
     /* Name.Tag */
-    color: #4689CD;
+    color: $base0c;
   }
   .nv {
     /* Name.Variable */
@@ -245,7 +245,7 @@ figure.highlight {
   }
   .mi {
     /* Literal.Number.Integer */
-    color: #A7C698;
+    color: $base09;
   }
   .mo {
     /* Literal.Number.Oct */
@@ -265,7 +265,7 @@ figure.highlight {
   }
   .s2 {
     /* Literal.String.Double */
-    color: rgb(193, 254, 240);
+    color: $base0b;
   }
   .se {
     /* Literal.String.Escape */
@@ -277,7 +277,7 @@ figure.highlight {
   }
   .si {
     /* Literal.String.Interpol */
-    color: #82c5ec;
+    color: $base09;
   }
   .sx {
     /* Literal.String.Other */
@@ -318,7 +318,8 @@ figure.highlight {
 }
 
 .gist {
-  th, td {
+  th,
+  td {
     border-bottom: 0;
   }
 }
