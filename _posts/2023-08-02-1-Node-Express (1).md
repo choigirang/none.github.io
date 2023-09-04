@@ -1,6 +1,6 @@
 ---
 title: "Node 2장 Express (1)"
-excerpt: ""
+excerpt: "기본 사용 방법과 개념"
 
 categories: Node
 tags: [Node, express]
