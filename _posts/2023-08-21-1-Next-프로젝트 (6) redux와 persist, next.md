@@ -1,9 +1,9 @@
 ---
-title: "React 57장 - 프로젝트 (6)"
+title: "Next.Js 11장 - 만들면서 배우기 (7)"
 excerpt: "next.js에서의 persist"
 
-categories: React
-tags: [React, 리액트, nextjs, persist, redux]
+categories: Next
+tags: [Next, React, 리액트, nextjs, persist, redux]
 
 toc: true
 toc_sticky: true
@@ -12,7 +12,7 @@ date: 2023-08-21
 last_modified_at: 2023-08-21
 ---
 
-# React
+# Next
 
 ## Next.js
 

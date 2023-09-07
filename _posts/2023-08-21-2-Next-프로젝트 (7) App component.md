@@ -1,9 +1,9 @@
 ---
-title: "React 58장 - 프로젝트 (7)"
+title: "Next.Js 12장 - 만들면서 배우기 (8)"
 excerpt: "최상위 컴포넌트에서 redux와 localStorage"
 
-categories: React
-tags: [React, 리액트, nextjs, redux, localStorage]
+categories: Next
+tags: [Next, React, 리액트, nextjs, redux, localStorage]
 
 toc: true
 toc_sticky: true
@@ -12,7 +12,7 @@ date: 2023-08-21
 last_modified_at: 2023-08-21
 ---
 
-# React
+# Next
 
 ## Next.js
 

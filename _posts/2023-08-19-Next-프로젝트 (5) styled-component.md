@@ -1,9 +1,9 @@
 ---
-title: "React 56장 - 프로젝트 (5)"
+title: "Next.Js 10장 - 만들면서 배우기 (6)"
 excerpt: "styled-components 알고쓰기"
 
-categories: React
-tags: [React, 리액트, styled-components, 스타일컴포넌트]
+categories: Next
+tags: [Next, React, 리액트, styled-components, 스타일컴포넌트]
 
 toc: true
 toc_sticky: true
@@ -12,7 +12,7 @@ date: 2023-08-19
 last_modified_at: 2023-08-19
 ---
 
-# React
+# Next
 
 ## styled-components
 
