@@ -132,6 +132,7 @@ last_modified_at: 2023-09-12
 - 또한 save할 때, Extension으로 설정된 prettier 환경에 맞게 코드를 수정해주는 옵션도 켜준다.
 
 https://stackoverflow.com/questions/76828444/failed-to-install-typescript-eslint-eslint-plugin
+https://velog.io/@he0_077/React-Typescript-eslint-prettier-%EC%84%A4%EC%A0%95
 
 ```js
 PS C:\Users\choigirang\Desktop\code-container> npm install @typescript-eslint/eslint-plugin
