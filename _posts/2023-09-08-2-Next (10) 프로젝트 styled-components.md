@@ -21,7 +21,7 @@ last_modified_at: 2023-09-08
 - `npm install -D babel-plugin-styled-components`
 - 설치 후 `.babelrc`라는 파일을 생성한다.
 
-```js
+```json
 // .babelrc
 {
   "presets": ["next/babel"],
